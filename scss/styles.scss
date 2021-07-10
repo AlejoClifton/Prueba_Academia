@@ -1,0 +1,129 @@
+* {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+    list-style: none;
+    flex-shrink: 0;
+    transition: all 0.3s;
+    border-radius: 1em;
+    font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+    color: #202124;
+    user-select: none;
+}
+
+body {
+    div.container-flex {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 10px;
+        column-gap: 5px;
+        row-gap: 5px;
+        >.header {
+            width: 100%;
+            background-color: rgb(173, 173, 173);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
+            >h1 {
+                padding-top: 10px;
+                width: 100%;
+                color: white;
+                text-align: center;
+            }
+            >a {
+                color: white;
+                text-align: center;
+                margin: 10px;
+                padding: 10px;
+            }
+            >i {
+                color: white;
+                width: 10%;
+                text-align: center;
+                padding: 10px;
+                font-size: 30px;
+            }
+            >form#frmDatos {
+                width: 70%;
+                text-align: center;
+                margin-top: 10px;
+                input#busqueda {
+                    width: 50%;
+                    outline: none;
+                    padding: 10px;
+                    margin: 10px;
+                    &:hover {
+                        background-color: rgb(230, 230, 230);
+                    }
+                }
+                button#btnfiltrar {
+                    padding: 10px;
+                    margin: 10px;
+                    &:hover {
+                        background-color: rgb(230, 230, 230);
+                    }
+                }
+                label.nombre {
+                    color: white;
+                }
+            }
+            i#menuInicio:hover,
+            a:hover {
+                background-color: rgb(230, 230, 230);
+            }
+        }
+        .menu {
+            width: 20%;
+            background-color: rgb(173, 173, 173);
+            box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            ul#menu-li {
+                padding: 5px;
+                li:hover {
+                    font-size: 18px;
+                    background-color: rgb(230, 230, 230);
+                }
+            }
+        }
+        .main {
+            width: 79%;
+            div#correo {
+                flex-direction: column;
+                div {
+                    display: flex;
+                    flex-wrap: wrap;
+                    padding: 2px;
+                    margin: 2px;
+                    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
+                    h2 {
+                        text-align: start;
+                        padding-left: 10px;
+                        padding-bottom: 2px;
+                        width: 66%;
+                    }
+                    h3 {
+                        text-align: end;
+                        width: 33%;
+                    }
+                    p {
+                        padding-right: 10px;
+                        padding-left: 10px;
+                        text-align: start;
+                    }
+                }
+                div:hover {
+                    background-color: rgb(212, 211, 211);
+                }
+                >div.activo {
+                    display: flex;
+                }
+                >div.desactivar {
+                    display: none;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,131 @@
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  box-sizing: border-box;
+  list-style: none;
+  flex-shrink: 0;
+  transition: all 0.3s;
+  border-radius: 1em;
+  font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+  color: #202124;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+body div.container-flex {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
+  -moz-column-gap: 5px;
+       column-gap: 5px;
+  row-gap: 5px;
+}
+body div.container-flex > .header {
+  width: 100%;
+  background-color: #adadad;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+body div.container-flex > .header > h1 {
+  padding-top: 10px;
+  width: 100%;
+  color: white;
+  text-align: center;
+}
+body div.container-flex > .header > a {
+  color: white;
+  text-align: center;
+  margin: 10px;
+  padding: 10px;
+}
+body div.container-flex > .header > i {
+  color: white;
+  width: 10%;
+  text-align: center;
+  padding: 10px;
+  font-size: 30px;
+}
+body div.container-flex > .header > form#frmDatos {
+  width: 70%;
+  text-align: center;
+  margin-top: 10px;
+}
+body div.container-flex > .header > form#frmDatos input#busqueda {
+  width: 50%;
+  outline: none;
+  padding: 10px;
+  margin: 10px;
+}
+body div.container-flex > .header > form#frmDatos input#busqueda:hover {
+  background-color: #e6e6e6;
+}
+body div.container-flex > .header > form#frmDatos button#btnfiltrar {
+  padding: 10px;
+  margin: 10px;
+}
+body div.container-flex > .header > form#frmDatos button#btnfiltrar:hover {
+  background-color: #e6e6e6;
+}
+body div.container-flex > .header > form#frmDatos label.nombre {
+  color: white;
+}
+body div.container-flex > .header i#menuInicio:hover,
+body div.container-flex > .header a:hover {
+  background-color: #e6e6e6;
+}
+body div.container-flex .menu {
+  width: 20%;
+  background-color: #adadad;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+body div.container-flex .menu ul#menu-li {
+  padding: 5px;
+}
+body div.container-flex .menu ul#menu-li li:hover {
+  font-size: 18px;
+  background-color: #e6e6e6;
+}
+body div.container-flex .main {
+  width: 79%;
+}
+body div.container-flex .main div#correo {
+  flex-direction: column;
+}
+body div.container-flex .main div#correo div {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 2px;
+  margin: 2px;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+body div.container-flex .main div#correo div h2 {
+  text-align: start;
+  padding-left: 10px;
+  padding-bottom: 2px;
+  width: 66%;
+}
+body div.container-flex .main div#correo div h3 {
+  text-align: end;
+  width: 33%;
+}
+body div.container-flex .main div#correo div p {
+  padding-right: 10px;
+  padding-left: 10px;
+  text-align: start;
+}
+body div.container-flex .main div#correo div:hover {
+  background-color: #d4d3d3;
+}
+body div.container-flex .main div#correo > div.activo {
+  display: flex;
+}
+body div.container-flex .main div#correo > div.desactivar {
+  display: none;
+}/*# sourceMappingURL=styles.css.map */
