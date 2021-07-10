@@ -4,7 +4,7 @@ var requestOptions = {
 };
 
 //Creo el Mail recibido
-function createMail(data) {
+function createMail(data, folder) {
     const div = document.createElement('div');
     const nombre = document.createElement('h2');
     const fecha = document.createElement('h3');
@@ -20,7 +20,7 @@ function createMail(data) {
     div.appendChild(asunto);
 
     div.addEventListener("click", () => {
-        window.location = "/selected.html?id=" + id + "?mensaje=" + mensaje + "?div=" + div;
+        window.location = "/selected.html?id=" + id + "&folder=" + folder;
     })
     return div;
 
@@ -39,10 +39,10 @@ function createMenu(data) {
 
 }
 //Crea div
-function createDiv(data, tipo) {
+function createDiv(data, tipo, folder) {
     if (tipo === 1) {
         for (let i = 0; i < data.length; i++) {
-            let dataItem = createMail(data[i]);
+            let dataItem = createMail(data[i], folder);
             document.getElementById('correo').appendChild(dataItem);
         }
     }
@@ -59,7 +59,7 @@ function api(string = "inbox") {
         .then(function(data) {
             let emails = JSON.parse(data);
             console.log(emails);
-            createDiv(emails, 1);
+            createDiv(emails, 1, string);
         })
 
     .catch(error => console.log('error', error));

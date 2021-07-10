@@ -15,6 +15,27 @@
           user-select: none;
 }
 
+@-webkit-keyframes escalado {
+  0% {
+    transform: scale(0.5);
+    transform-origin: 100% 50%;
+  }
+  100% {
+    transform: scale(1);
+    transform-origin: 100% 50%;
+  }
+}
+
+@keyframes escalado {
+  0% {
+    transform: scale(0.5);
+    transform-origin: 100% 50%;
+  }
+  100% {
+    transform: scale(1);
+    transform-origin: 100% 50%;
+  }
+}
 body div.container-flex {
   display: flex;
   flex-wrap: wrap;
@@ -23,7 +44,7 @@ body div.container-flex {
        column-gap: 5px;
   row-gap: 5px;
 }
-body div.container-flex > .header {
+body div.container-flex > #header {
   width: 100%;
   background-color: #adadad;
   display: flex;
@@ -32,100 +53,155 @@ body div.container-flex > .header {
   align-items: center;
   box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
 }
-body div.container-flex > .header > h1 {
+body div.container-flex > #header > h1 {
   padding-top: 10px;
   width: 100%;
   color: white;
   text-align: center;
 }
-body div.container-flex > .header > a {
+body div.container-flex > #header > a {
   color: white;
   text-align: center;
   margin: 10px;
   padding: 10px;
 }
-body div.container-flex > .header > i {
+body div.container-flex > #header > i {
   color: white;
   width: 10%;
   text-align: center;
   padding: 10px;
   font-size: 30px;
 }
-body div.container-flex > .header > form#frmDatos {
+body div.container-flex > #header > form#frmDatos {
   width: 70%;
   text-align: center;
   margin-top: 10px;
 }
-body div.container-flex > .header > form#frmDatos input#busqueda {
+body div.container-flex > #header > form#frmDatos input#busqueda {
   width: 50%;
   outline: none;
   padding: 10px;
   margin: 10px;
 }
-body div.container-flex > .header > form#frmDatos input#busqueda:hover {
+body div.container-flex > #header > form#frmDatos input#busqueda:hover {
   background-color: #e6e6e6;
 }
-body div.container-flex > .header > form#frmDatos button#btnfiltrar {
+body div.container-flex > #header > form#frmDatos button#btnfiltrar {
   padding: 10px;
   margin: 10px;
 }
-body div.container-flex > .header > form#frmDatos button#btnfiltrar:hover {
+body div.container-flex > #header > form#frmDatos button#btnfiltrar:hover {
   background-color: #e6e6e6;
 }
-body div.container-flex > .header > form#frmDatos label.nombre {
+body div.container-flex > #header > form#frmDatos label.nombre {
   color: white;
 }
-body div.container-flex > .header i#menuInicio:hover,
-body div.container-flex > .header a:hover {
+body div.container-flex > #header i#menuInicio:hover,
+body div.container-flex > #header i#menuEnviar:hover,
+body div.container-flex > #header a:hover {
   background-color: #e6e6e6;
 }
-body div.container-flex .menu {
+body div.container-flex div#frmAbs {
+  display: none;
+  width: 500px;
+  height: 500px;
+  padding: 10px;
+  margin: 10px;
+  bottom: 0;
+  right: 0;
+  background-color: aqua;
+  position: absolute;
+  transition: all;
+}
+body div.container-flex div#frmAbs form#frmEnviar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+body div.container-flex div#frmAbs form#frmEnviar div {
+  width: 100%;
+  text-align: end;
+}
+body div.container-flex div#frmAbs form#frmEnviar div i {
+  padding: 3px;
+  margin: 3px;
+}
+body div.container-flex div#frmAbs form#frmEnviar input {
+  padding: 2px;
+  margin: 2px;
+  width: 100%;
+}
+body div.container-flex div#frmAbs form#frmEnviar textarea {
+  width: 100%;
+  padding: 2px;
+  margin: 2px;
+  height: 400px;
+}
+body div.container-flex div#frmAbs form#frmEnviar button {
+  width: 25%;
+}
+body div.container-flex div#frmAbs form#frmEnviar div > i:hover {
+  background-color: #adadad;
+}
+body div.container-flex div#frmAbs.active {
+  display: block;
+  -webkit-animation: escalado 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+          animation: escalado 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+}
+body div.container-flex > #menu {
+  display: block;
   width: 20%;
   background-color: #adadad;
   box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
   text-align: center;
 }
-body div.container-flex .menu ul#menu-li {
+body div.container-flex > #menu ul#menu-li {
   padding: 5px;
 }
-body div.container-flex .menu ul#menu-li li:hover {
+body div.container-flex > #menu ul#menu-li li:hover {
   font-size: 18px;
   background-color: #e6e6e6;
 }
-body div.container-flex .main {
+body div.container-flex > #menu.desactive {
+  display: none;
+}
+body div.container-flex > #main {
   width: 79%;
 }
-body div.container-flex .main div#correo {
+body div.container-flex > #main div#correo {
   flex-direction: column;
 }
-body div.container-flex .main div#correo div {
+body div.container-flex > #main div#correo div {
   display: flex;
   flex-wrap: wrap;
   padding: 2px;
   margin: 2px;
   box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
 }
-body div.container-flex .main div#correo div h2 {
+body div.container-flex > #main div#correo div h2 {
   text-align: start;
   padding-left: 10px;
   padding-bottom: 2px;
   width: 66%;
 }
-body div.container-flex .main div#correo div h3 {
+body div.container-flex > #main div#correo div h3 {
   text-align: end;
   width: 33%;
 }
-body div.container-flex .main div#correo div p {
+body div.container-flex > #main div#correo div p {
   padding-right: 10px;
   padding-left: 10px;
   text-align: start;
 }
-body div.container-flex .main div#correo div:hover {
+body div.container-flex > #main div#correo div:hover {
   background-color: #d4d3d3;
 }
-body div.container-flex .main div#correo > div.activo {
+body div.container-flex > #main div#correo > div.activo {
   display: flex;
 }
-body div.container-flex .main div#correo > div.desactivar {
+body div.container-flex > #main div#correo > div.desactivar {
   display: none;
+}
+body div.container-flex > #main.active {
+  width: 100%;
 }/*# sourceMappingURL=styles.css.map */

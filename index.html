@@ -13,20 +13,30 @@
 
 <body>
     <div class="container-flex">
-        <section class="header">
+        <section id="header">
             <h1 class="nombre">Alejo Tomás Clifton Goldney</h1>
-            <i id="menuInicio" class="fas fa-bars"></i>
+            <i id="menuEnviar" class="fas fa-envelope"></i>
             <a href="/index.html">Inicio</a>
             <form id="frmDatos">
                 <i class="fas fa-search"></i><input id="busqueda" type="text" name="txtBusqueda" placeholder="Ingrese su búsqueda.">
                 <button id="btnfiltrar" type="button">Buscar</button>
             </form>
+            <i id="menuInicio" class="fas fa-bars"></i>
         </section>
-        <section class="menu">
-            <ul id="menu-li"></ul>
-        </section>
-        <section class="main">
+        <div id="frmAbs">
+            <form id="frmEnviar" action="">
+                <div><i id="menuCerrar" class="fas fa-times"></i></div>
+                <input type="text" name="txtMail" placeholder="Para: ">
+                <input type="text" name="txtAsunto" placeholder="Asunto: ">
+                <textarea class="Mensaje" placeholder="Mensaje: "></textarea>
+                <button type="submit" name="enviar">Enviar</button>
+            </form>
+        </div>
+        <section id="main">
             <div id="correo"></div>
+        </section>
+        <section id="menu">
+            <ul id="menu-li"></ul>
         </section>
     </div>
     <script src="js/filtro.js"></script>

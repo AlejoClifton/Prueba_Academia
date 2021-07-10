@@ -12,6 +12,17 @@
     user-select: none;
 }
 
+@keyframes escalado {
+    0% {
+        transform: scale(0.5);
+        transform-origin: 100% 50%;
+    }
+    100% {
+        transform: scale(1);
+        transform-origin: 100% 50%;
+    }
+}
+
 body {
     div.container-flex {
         display: flex;
@@ -19,7 +30,7 @@ body {
         padding: 10px;
         column-gap: 5px;
         row-gap: 5px;
-        >.header {
+        >#header {
             width: 100%;
             background-color: rgb(173, 173, 173);
             display: flex;
@@ -71,11 +82,59 @@ body {
                 }
             }
             i#menuInicio:hover,
+            i#menuEnviar:hover,
             a:hover {
                 background-color: rgb(230, 230, 230);
             }
         }
-        .menu {
+        div#frmAbs {
+            display: none;
+            width: 500px;
+            height: 500px;
+            padding: 10px;
+            margin: 10px;
+            bottom: 0;
+            right: 0;
+            background-color: aqua;
+            position: absolute;
+            transition: all;
+            form#frmEnviar {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                div {
+                    width: 100%;
+                    text-align: end;
+                    i {
+                        padding: 3px;
+                        margin: 3px;
+                    }
+                }
+                input {
+                    padding: 2px;
+                    margin: 2px;
+                    width: 100%;
+                }
+                textarea {
+                    width: 100%;
+                    padding: 2px;
+                    margin: 2px;
+                    height: 400px;
+                }
+                button {
+                    width: 25%;
+                }
+                div>i:hover {
+                    background-color: rgb(173, 173, 173);
+                }
+            }
+        }
+        div#frmAbs.active {
+            display: block;
+            animation: escalado 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+        }
+        >#menu {
+            display: block;
             width: 20%;
             background-color: rgb(173, 173, 173);
             box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
@@ -88,7 +147,10 @@ body {
                 }
             }
         }
-        .main {
+        >#menu.desactive {
+            display: none;
+        }
+        >#main {
             width: 79%;
             div#correo {
                 flex-direction: column;
@@ -124,6 +186,9 @@ body {
                     display: none;
                 }
             }
+        }
+        >#main.active {
+            width: 100%;
         }
     }
 }
