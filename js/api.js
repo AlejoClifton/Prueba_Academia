@@ -6,13 +6,17 @@ var requestOptions = {
 //Creo el Mail recibido
 function createMail(data, folder) {
     const div = document.createElement('div');
+    const nombreAsunto = document.createElement('div');
+    const fechaBoton = document.createElement('div');
     const nombre = document.createElement('h2');
     const fecha = document.createElement('h3');
     const asunto = document.createElement('p');
-    const divEliminar = document.createElement('div')
-    var eliminar = document.createElement('i');
+    const divEliminar = document.createElement('div');
+    const eliminar = document.createElement('i');
+
     eliminar.classList.add("fas");
     eliminar.classList.add("fa-trash");
+
     nombre.innerText = data.from.name;
     fecha.innerText = data.time;
     asunto.innerText = data.subject;
@@ -33,31 +37,59 @@ function createMail(data, folder) {
             .catch(error => console.log('error', error));
     }
 
-    divEliminar.appendChild(eliminar)
-    div.appendChild(nombre);
-    div.appendChild(fecha);
-    div.appendChild(asunto);
-    div.appendChild(divEliminar);
-    console.log(div)
-    asunto.addEventListener("click", () => {
+    divEliminar.appendChild(eliminar);
+    nombreAsunto.appendChild(nombre);
+    nombreAsunto.appendChild(asunto);
+    fechaBoton.appendChild(fecha);
+    fechaBoton.appendChild(divEliminar);
+
+    div.appendChild(nombreAsunto);
+    div.appendChild(fechaBoton);
+
+    nombreAsunto.addEventListener("click", () => {
         window.location = "/selected.html?id=" + id + "&folder=" + folder;
     })
-    nombre.addEventListener("click", () => {
-        window.location = "/selected.html?id=" + id + "&folder=" + folder;
-    })
+
     return div;
 }
 //Creo el Menu recibido
+function createIconoMenu(folder) {
+    var icono = document.createElement('i');
+    icono.classList.add("fas");
+    if (folder === "inbox") {
+        icono.classList.add("fa-inbox");
+    } else if (folder === "sent") {
+        icono.classList.add("fa-paper-plane");
+    } else if (folder === "drafts") {
+        icono.classList.add("fa-file");
+    } else if (folder === "spam") {
+        icono.classList.add("fa-exclamation-triangle");
+    } else if (folder === "trash") {
+        icono.classList.add("fa-trash-alt");
+    } else if (folder === "starred") {
+        icono.classList.add("fa-star");
+    } else {
+        icono.classList.add("fa-bookmark");
+    }
+
+    return icono;
+}
+
 function createMenu(data) {
-    const nombre = document.createElement('li');
+    const div = document.createElement('div')
+    const nombre = document.createElement('p');
+    const icono = createIconoMenu(data.name);
     nombre.innerText = data.name;
 
-    nombre.addEventListener("click", () => {
+    div.appendChild(icono);
+    div.appendChild(nombre);
+
+    div.addEventListener("click", () => {
         document.getElementById("correo").innerHTML = "";
         api(data.name);
     })
 
-    document.getElementById("menu-li").appendChild(nombre);
+    document.getElementById("menu-div").appendChild(div);
 
 }
 //Crea div

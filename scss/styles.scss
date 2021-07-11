@@ -24,6 +24,7 @@
 }
 
 body {
+    background-color: rgb(187, 186, 186);
     div.container-flex {
         display: flex;
         flex-wrap: wrap;
@@ -37,24 +38,25 @@ body {
             flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
+            >h1,
+            >a,
+            >i {
+                color: white;
+                text-align: center;
+            }
+            >a,
+            >i {
+                width: 10%;
+                padding: 10px;
+            }
             >h1 {
                 padding-top: 10px;
                 width: 100%;
-                color: white;
-                text-align: center;
             }
             >a {
-                color: white;
-                text-align: center;
-                margin: 10px;
-                padding: 10px;
+                font-size: 25px;
             }
             >i {
-                color: white;
-                width: 10%;
-                text-align: center;
-                padding: 10px;
                 font-size: 30px;
             }
             >form#frmDatos {
@@ -67,23 +69,22 @@ body {
                     padding: 10px;
                     margin: 10px;
                     &:hover {
-                        background-color: rgb(230, 230, 230);
+                        background-color: rgb(174, 174, 250);
                     }
                 }
                 button#btnfiltrar {
                     padding: 10px;
                     margin: 10px;
                     &:hover {
-                        background-color: rgb(230, 230, 230);
+                        color: white;
+                        background-color: rgb(174, 174, 250);
                     }
-                }
-                label.nombre {
-                    color: white;
                 }
             }
             i#menuInicio:hover,
             i#menuEnviar:hover,
             a:hover {
+                color: rgb(75, 75, 241);
                 background-color: rgb(230, 230, 230);
             }
         }
@@ -93,11 +94,11 @@ body {
             height: 500px;
             padding: 10px;
             margin: 10px;
-            bottom: 0;
+            bottom: 50px;
             right: 0;
-            background-color: aqua;
+            background-color: rgb(97, 97, 97);
             position: absolute;
-            transition: all;
+            z-index: 100;
             form#frmEnviar {
                 display: flex;
                 flex-direction: column;
@@ -111,17 +112,20 @@ body {
                     }
                 }
                 input {
+                    outline: none;
                     padding: 2px;
                     margin: 2px;
                     width: 100%;
                 }
                 textarea {
+                    outline: none;
                     width: 100%;
                     padding: 2px;
                     margin: 2px;
-                    height: 400px;
+                    height: 350px;
                 }
                 button {
+                    outline: none;
                     width: 25%;
                 }
                 div>i:hover {
@@ -134,50 +138,91 @@ body {
             animation: escalado 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
         }
         >#menu {
-            display: block;
+            display: none;
             width: 20%;
+            height: 20%;
             background-color: rgb(173, 173, 173);
-            box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
-            text-align: center;
-            ul#menu-li {
+            animation: escalado 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+            div#menu-div {
                 padding: 5px;
-                li:hover {
-                    font-size: 18px;
+                div {
+                    display: flex;
+                    text-align: center;
+                    flex-wrap: wrap;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: center;
+                    padding-top: 5px;
+                    padding-bottom: 5px;
+                    >i,
+                    >p {
+                        color: grey;
+                        text-align: center;
+                        width: 20%;
+                    }
+                }
+                div:hover {
+                    >i,
+                    >p {
+                        color: rgb(75, 75, 241);
+                        font-size: 18px;
+                    }
                     background-color: rgb(230, 230, 230);
                 }
             }
         }
         >#menu.desactive {
-            display: none;
+            display: block;
         }
         >#main {
-            width: 79%;
+            width: 100%;
             div#correo {
-                flex-direction: column;
                 div {
+                    padding: 10px;
                     display: flex;
-                    flex-wrap: wrap;
-                    padding: 2px;
-                    margin: 2px;
-                    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
-                    h2 {
-                        text-align: start;
-                        padding-left: 10px;
-                        padding-bottom: 2px;
-                        width: 66%;
+                    >div {
+                        width: 80%;
+                        display: flex;
+                        flex-direction: column;
+                        h2 {
+                            text-align: start;
+                            padding-left: 10px;
+                            padding-bottom: 2px;
+                        }
+                        p {
+                            padding-right: 10px;
+                            padding-left: 10px;
+                            text-align: start;
+                        }
                     }
-                    h3 {
-                        text-align: end;
-                        width: 33%;
+                    >div+div {
+                        width: 19%;
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: center;
+                        h3 {
+                            width: 50%;
+                        }
+                        div {
+                            width: 31%;
+                            i {
+                                color: grey;
+                                padding: 5px;
+                            }
+                            i:hover {
+                                color: black;
+                                background-color: rgb(255, 115, 115);
+                            }
+                        }
                     }
-                    p {
-                        padding-right: 10px;
-                        padding-left: 10px;
-                        text-align: start;
+                    >div:hover {
+                        >h2,
+                        >p {
+                            color: rgb(75, 75, 241);
+                        }
+                        background-color: rgb(230, 230, 230);
                     }
-                }
-                div:hover {
-                    background-color: rgb(212, 211, 211);
                 }
                 >div.activo {
                     display: flex;
@@ -186,9 +231,47 @@ body {
                     display: none;
                 }
             }
+            div#seleccionado {
+                >div {
+                    border: 1px solid grey;
+                    background-color: rgb(218, 218, 218);
+                    display: flex;
+                    flex-wrap: wrap;
+                    flex-direction: row;
+                    padding: 5px;
+                    margin: 5px;
+                    h2 {
+                        text-align: start;
+                        width: 40%;
+                    }
+                    h2.select_Mail {
+                        text-align: center;
+                    }
+                    h3 {
+                        width: 20%;
+                        text-align: end;
+                    }
+                    h2,
+                    h3 {
+                        color: rgb(75, 75, 241);
+                    }
+                    p.select_Asunto {
+                        border: 1px solid grey;
+                        font-size: 20px;
+                        padding: 10px;
+                        width: 100%;
+                        text-align: center;
+                    }
+                    p.select_Mensaje {
+                        padding-top: 10px;
+                        font-size: 15px;
+                        width: 100%;
+                    }
+                }
+            }
         }
         >#main.active {
-            width: 100%;
+            width: 79%;
         }
     }
 }

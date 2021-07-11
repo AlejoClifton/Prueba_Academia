@@ -16,20 +16,25 @@ function mailAbierto() {
         const fecha = document.createElement('h3');
         const asunto = document.createElement('p');
         const mensaje = document.createElement('p');
-        const avatar = document.createElement('img');
-        nombre.innerText = data.from.name;
-        fecha.innerText = data.time;
-        asunto.innerText = data.subject;
-        mensaje.innerHTML = data.message;
-        avatar.innerText = data.from.avatar;
+        const mail = document.createElement('h2');
+
+        asunto.classList.add("select_Asunto");
+        mensaje.classList.add("select_Mensaje");
+        mail.classList.add("select_Mail");
+
+        nombre.innerText = "Nombre: " + data.from.name;
+        mail.innerText = "Mail: " + data.from.email;
+        fecha.innerText = "Fecha: " + data.time;
+        asunto.innerHTML = "<b>Asunto: </b>" + data.subject;
+        mensaje.innerHTML = "<b>Mensaje: </b>" + data.message;
 
         div.appendChild(nombre);
+        div.appendChild(mail);
         div.appendChild(fecha);
         div.appendChild(asunto);
         div.appendChild(mensaje);
 
         document.getElementById('seleccionado').appendChild(div);
-
     }
 
     function api(folder = "inbox") {

@@ -3,10 +3,6 @@ let listaCorreos = document.getElementById("correo");
 let txtBusqueda = document.getElementById("busqueda");
 let correosHijos = listaCorreos.children;
 
-
-
-console.log(txtBusqueda.value);
-
 btnfiltrar.onclick = function() {
     for (let a = 0; a < correosHijos.length; a++) {
         console.log(correosHijos[a].innerText);

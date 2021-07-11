@@ -36,6 +36,9 @@
     transform-origin: 100% 50%;
   }
 }
+body {
+  background-color: #bbbaba;
+}
 body div.container-flex {
   display: flex;
   flex-wrap: wrap;
@@ -51,25 +54,26 @@ body div.container-flex > #header {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+body div.container-flex > #header > h1,
+body div.container-flex > #header > a,
+body div.container-flex > #header > i {
+  color: white;
+  text-align: center;
+}
+body div.container-flex > #header > a,
+body div.container-flex > #header > i {
+  width: 10%;
+  padding: 10px;
 }
 body div.container-flex > #header > h1 {
   padding-top: 10px;
   width: 100%;
-  color: white;
-  text-align: center;
 }
 body div.container-flex > #header > a {
-  color: white;
-  text-align: center;
-  margin: 10px;
-  padding: 10px;
+  font-size: 25px;
 }
 body div.container-flex > #header > i {
-  color: white;
-  width: 10%;
-  text-align: center;
-  padding: 10px;
   font-size: 30px;
 }
 body div.container-flex > #header > form#frmDatos {
@@ -84,21 +88,20 @@ body div.container-flex > #header > form#frmDatos input#busqueda {
   margin: 10px;
 }
 body div.container-flex > #header > form#frmDatos input#busqueda:hover {
-  background-color: #e6e6e6;
+  background-color: #aeaefa;
 }
 body div.container-flex > #header > form#frmDatos button#btnfiltrar {
   padding: 10px;
   margin: 10px;
 }
 body div.container-flex > #header > form#frmDatos button#btnfiltrar:hover {
-  background-color: #e6e6e6;
-}
-body div.container-flex > #header > form#frmDatos label.nombre {
   color: white;
+  background-color: #aeaefa;
 }
 body div.container-flex > #header i#menuInicio:hover,
 body div.container-flex > #header i#menuEnviar:hover,
 body div.container-flex > #header a:hover {
+  color: #4b4bf1;
   background-color: #e6e6e6;
 }
 body div.container-flex div#frmAbs {
@@ -107,11 +110,11 @@ body div.container-flex div#frmAbs {
   height: 500px;
   padding: 10px;
   margin: 10px;
-  bottom: 0;
+  bottom: 50px;
   right: 0;
-  background-color: aqua;
+  background-color: #616161;
   position: absolute;
-  transition: all;
+  z-index: 100;
 }
 body div.container-flex div#frmAbs form#frmEnviar {
   display: flex;
@@ -127,17 +130,20 @@ body div.container-flex div#frmAbs form#frmEnviar div i {
   margin: 3px;
 }
 body div.container-flex div#frmAbs form#frmEnviar input {
+  outline: none;
   padding: 2px;
   margin: 2px;
   width: 100%;
 }
 body div.container-flex div#frmAbs form#frmEnviar textarea {
+  outline: none;
   width: 100%;
   padding: 2px;
   margin: 2px;
-  height: 400px;
+  height: 350px;
 }
 body div.container-flex div#frmAbs form#frmEnviar button {
+  outline: none;
   width: 25%;
 }
 body div.container-flex div#frmAbs form#frmEnviar div > i:hover {
@@ -149,52 +155,92 @@ body div.container-flex div#frmAbs.active {
           animation: escalado 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
 }
 body div.container-flex > #menu {
-  display: block;
+  display: none;
   width: 20%;
+  height: 20%;
   background-color: #adadad;
-  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
-  text-align: center;
+  -webkit-animation: escalado 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+          animation: escalado 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
 }
-body div.container-flex > #menu ul#menu-li {
+body div.container-flex > #menu div#menu-div {
   padding: 5px;
 }
-body div.container-flex > #menu ul#menu-li li:hover {
-  font-size: 18px;
+body div.container-flex > #menu div#menu-div div {
+  display: flex;
+  text-align: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+body div.container-flex > #menu div#menu-div div > i,
+body div.container-flex > #menu div#menu-div div > p {
+  color: grey;
+  text-align: center;
+  width: 20%;
+}
+body div.container-flex > #menu div#menu-div div:hover {
   background-color: #e6e6e6;
 }
+body div.container-flex > #menu div#menu-div div:hover > i,
+body div.container-flex > #menu div#menu-div div:hover > p {
+  color: #4b4bf1;
+  font-size: 18px;
+}
 body div.container-flex > #menu.desactive {
-  display: none;
+  display: block;
 }
 body div.container-flex > #main {
-  width: 79%;
-}
-body div.container-flex > #main div#correo {
-  flex-direction: column;
+  width: 100%;
 }
 body div.container-flex > #main div#correo div {
+  padding: 10px;
   display: flex;
-  flex-wrap: wrap;
-  padding: 2px;
-  margin: 2px;
-  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
 }
-body div.container-flex > #main div#correo div h2 {
+body div.container-flex > #main div#correo div > div {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+}
+body div.container-flex > #main div#correo div > div h2 {
   text-align: start;
   padding-left: 10px;
   padding-bottom: 2px;
-  width: 66%;
 }
-body div.container-flex > #main div#correo div h3 {
-  text-align: end;
-  width: 33%;
-}
-body div.container-flex > #main div#correo div p {
+body div.container-flex > #main div#correo div > div p {
   padding-right: 10px;
   padding-left: 10px;
   text-align: start;
 }
-body div.container-flex > #main div#correo div:hover {
-  background-color: #d4d3d3;
+body div.container-flex > #main div#correo div > div + div {
+  width: 19%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+body div.container-flex > #main div#correo div > div + div h3 {
+  width: 50%;
+}
+body div.container-flex > #main div#correo div > div + div div {
+  width: 31%;
+}
+body div.container-flex > #main div#correo div > div + div div i {
+  color: grey;
+  padding: 5px;
+}
+body div.container-flex > #main div#correo div > div + div div i:hover {
+  color: black;
+  background-color: #ff7373;
+}
+body div.container-flex > #main div#correo div > div:hover {
+  background-color: #e6e6e6;
+}
+body div.container-flex > #main div#correo div > div:hover > h2,
+body div.container-flex > #main div#correo div > div:hover > p {
+  color: #4b4bf1;
 }
 body div.container-flex > #main div#correo > div.activo {
   display: flex;
@@ -202,6 +248,42 @@ body div.container-flex > #main div#correo > div.activo {
 body div.container-flex > #main div#correo > div.desactivar {
   display: none;
 }
-body div.container-flex > #main.active {
+body div.container-flex > #main div#seleccionado > div {
+  border: 1px solid grey;
+  background-color: #dadada;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  padding: 5px;
+  margin: 5px;
+}
+body div.container-flex > #main div#seleccionado > div h2 {
+  text-align: start;
+  width: 40%;
+}
+body div.container-flex > #main div#seleccionado > div h2.select_Mail {
+  text-align: center;
+}
+body div.container-flex > #main div#seleccionado > div h3 {
+  width: 20%;
+  text-align: end;
+}
+body div.container-flex > #main div#seleccionado > div h2,
+body div.container-flex > #main div#seleccionado > div h3 {
+  color: #4b4bf1;
+}
+body div.container-flex > #main div#seleccionado > div p.select_Asunto {
+  border: 1px solid grey;
+  font-size: 20px;
+  padding: 10px;
   width: 100%;
+  text-align: center;
+}
+body div.container-flex > #main div#seleccionado > div p.select_Mensaje {
+  padding-top: 10px;
+  font-size: 15px;
+  width: 100%;
+}
+body div.container-flex > #main.active {
+  width: 79%;
 }/*# sourceMappingURL=styles.css.map */
