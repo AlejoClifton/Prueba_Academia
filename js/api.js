@@ -9,21 +9,43 @@ function createMail(data, folder) {
     const nombre = document.createElement('h2');
     const fecha = document.createElement('h3');
     const asunto = document.createElement('p');
+    const divEliminar = document.createElement('div')
+    var eliminar = document.createElement('i');
+    eliminar.classList.add("fas");
+    eliminar.classList.add("fa-trash");
     nombre.innerText = data.from.name;
     fecha.innerText = data.time;
     asunto.innerText = data.subject;
     const id = data.id;
-    const mensaje = data.message;
 
+    eliminar.onclick = function() {
+        var deleteOptions = {
+            method: 'DELETE',
+            redirect: 'follow'
+        };
+
+        fetch("https://academia.tim.teknosgroup.com/clifton-ba16/api/messages/" + folder + "/" + id, deleteOptions)
+            .then(response => response.text())
+            .then(result => {
+                document.getElementById("correo").innerHTML = "";
+                api(folder);
+            })
+            .catch(error => console.log('error', error));
+    }
+
+    divEliminar.appendChild(eliminar)
     div.appendChild(nombre);
     div.appendChild(fecha);
     div.appendChild(asunto);
-
-    div.addEventListener("click", () => {
+    div.appendChild(divEliminar);
+    console.log(div)
+    asunto.addEventListener("click", () => {
+        window.location = "/selected.html?id=" + id + "&folder=" + folder;
+    })
+    nombre.addEventListener("click", () => {
         window.location = "/selected.html?id=" + id + "&folder=" + folder;
     })
     return div;
-
 }
 //Creo el Menu recibido
 function createMenu(data) {
@@ -62,7 +84,7 @@ function api(string = "inbox") {
             createDiv(emails, 1, string);
         })
 
-    .catch(error => console.log('error', error));
+    .catch(function(data) { console.log(data) });
 }
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -77,3 +99,43 @@ document.addEventListener("DOMContentLoaded", () => {
         .catch(error => console.log('error', error));
 
 })
+
+function enviarMail(data) {
+    var enviarMailOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: JSON.stringify(raw),
+        redirect: 'follow'
+    };
+
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    var raw = {
+        from: {
+            name: "Alejo Tomás Clifton Goldney",
+            avatar: "assets/images/avatars/vincent.jpg",
+            email: "cliftonalejo@gmail.com"
+        },
+        to: [{
+            name: data.txtNombre.value,
+            email: data.txtMail.value
+        }],
+        subject: data.txtAsunto.value,
+        message: data.txtMensaje.value,
+        read: true,
+        starred: false,
+        important: true,
+        hasAttachments: false,
+        labels: []
+    };
+
+
+    fetch("https://academia.tim.teknosgroup.com/clifton-ba16/api/messages/sent", enviarMailOptions)
+        .then(response => response.text())
+        .then(result => {
+            document.getElementById("correo").innerHTML = "";
+            api("sent");
+        })
+        .catch(error => console.log('error', error));
+}
