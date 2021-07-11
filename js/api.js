@@ -117,6 +117,10 @@ function noInformacion(folder) {
 
     div.appendChild(label);
 
+    if (folder == "1") {
+        label.innerHTML = "No posee ningún mail con ese nombre";
+    }
+
     document.getElementById("correo").appendChild(div);
 }
 
@@ -125,7 +129,6 @@ function api(string = "inbox") {
         .then(data => data.text())
         .then(function(data) {
             let emails = JSON.parse(data);
-            console.log(emails);
             if (emails.length === 0) {
                 noInformacion(string);
             }
@@ -150,13 +153,6 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 function enviarMail(data) {
-    var enviarMailOptions = {
-        method: 'POST',
-        headers: myHeaders,
-        body: JSON.stringify(raw),
-        redirect: 'follow'
-    };
-
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
@@ -179,6 +175,12 @@ function enviarMail(data) {
         labels: []
     };
 
+    var enviarMailOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: JSON.stringify(raw),
+        redirect: 'follow'
+    };
 
     fetch("https://academia.tim.teknosgroup.com/clifton-ba16/api/messages/sent", enviarMailOptions)
         .then(response => response.text())
@@ -187,4 +189,7 @@ function enviarMail(data) {
             api("sent");
         })
         .catch(error => console.log('error', error));
+
+
+    div.classList.remove("active");
 }

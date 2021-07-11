@@ -42,7 +42,6 @@ function mailAbierto() {
             .then(data => data.text())
             .then(function(data) {
                 let emails = JSON.parse(data);
-                console.log(emails);
                 let elMensaje = emails.find((msg) => msg.id === id);
                 createMensaje(elMensaje);
             })

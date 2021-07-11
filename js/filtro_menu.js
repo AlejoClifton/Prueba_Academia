@@ -4,19 +4,22 @@ let txtBusqueda = document.getElementById("busqueda");
 let correosHijos = listaCorreos.children;
 
 btnfiltrar.onclick = function() {
+    let count = 0;
     for (let a = 0; a < correosHijos.length; a++) {
-        console.log(correosHijos[a].innerText);
-        console.log(txtBusqueda.value);
         if (correosHijos[a].innerText.toUpperCase().includes(txtBusqueda.value.toUpperCase())) {
             correosHijos[a].classList.remove('desactivar');
             correosHijos[a].classList.add('activo');
         } else {
+            count++;
             correosHijos[a].classList.add('desactivar');
             correosHijos[a].classList.remove('activo');
         }
-
     }
-    txtBusqueda.innerText = "";
+
+    if (count === correosHijos.length) {
+        noInformacion("1");
+    }
+    txtBusqueda.value = "";
 }
 
 let menuEnviar = document.getElementById("menuEnviar");
@@ -42,7 +45,6 @@ let menu = document.getElementById("menu");
 let main = document.getElementById("main");
 
 menuInicio.onclick = function() {
-    console.log(menu)
     if (!menu.classList.contains("desactive")) {
         menu.classList.add("desactive");
         main.classList.add("active");
