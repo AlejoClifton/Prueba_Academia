@@ -107,16 +107,33 @@ function createDiv(data, tipo, folder) {
     }
 }
 
+function noInformacion(folder) {
+    const div = document.createElement('div');
+    const label = document.createElement('label');
+
+    div.classList.add("no_informacion");
+
+    label.innerHTML = "No posee ningún mail en la carpeta: " + "<big>" + folder + "</big>";
+
+    div.appendChild(label);
+
+    document.getElementById("correo").appendChild(div);
+}
+
 function api(string = "inbox") {
     fetch("https://academia.tim.teknosgroup.com/clifton-ba16/api/messages/" + string, requestOptions)
         .then(data => data.text())
         .then(function(data) {
             let emails = JSON.parse(data);
             console.log(emails);
+            if (emails.length === 0) {
+                noInformacion(string);
+            }
             createDiv(emails, 1, string);
         })
-
-    .catch(function(data) { console.log(data) });
+        .catch(function(data) {
+            noInformacion(string);
+        });
 }
 document.addEventListener("DOMContentLoaded", () => {
 

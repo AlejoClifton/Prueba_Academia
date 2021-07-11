@@ -195,6 +195,9 @@ body div.container-flex > #menu.desactive {
 body div.container-flex > #main {
   width: 100%;
 }
+body div.container-flex > #main div#correo {
+  border: 1px solid grey;
+}
 body div.container-flex > #main div#correo div {
   padding: 10px;
   display: flex;
@@ -247,6 +250,18 @@ body div.container-flex > #main div#correo > div.activo {
 }
 body div.container-flex > #main div#correo > div.desactivar {
   display: none;
+}
+body div.container-flex > #main div#correo > div.no_informacion {
+  font-size: 30px;
+  width: 95%;
+  padding: 10px;
+  margin: 10px;
+}
+body div.container-flex > #main div#correo > div.no_informacion:hover {
+  background-color: #e6e6e6;
+}
+body div.container-flex > #main div#correo > div.no_informacion:hover > label {
+  color: #4b4bf1;
 }
 body div.container-flex > #main div#seleccionado > div {
   border: 1px solid grey;

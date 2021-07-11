@@ -177,6 +177,7 @@ body {
         >#main {
             width: 100%;
             div#correo {
+                border: 1px solid grey;
                 div {
                     padding: 10px;
                     display: flex;
@@ -229,6 +230,18 @@ body {
                 }
                 >div.desactivar {
                     display: none;
+                }
+                >div.no_informacion {
+                    font-size: 30px;
+                    width: 95%;
+                    padding: 10px;
+                    margin: 10px;
+                }
+                >div.no_informacion:hover {
+                    background-color: rgb(230, 230, 230);
+                    >label {
+                        color: rgb(75, 75, 241);
+                    }
                 }
             }
             div#seleccionado {
