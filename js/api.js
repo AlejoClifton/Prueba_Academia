@@ -2,7 +2,6 @@ var requestOptions = {
     method: 'GET',
     redirect: 'follow'
 };
-
 //Creo el Mail recibido
 function createMail(data, folder) {
     const div = document.createElement('div');
@@ -134,9 +133,9 @@ function api(string = "inbox") {
             }
             createDiv(emails, 1, string);
         })
-        .catch(function(data) {
+        .catch(function() {
             noInformacion(string);
-        });
+        })
 }
 document.addEventListener("DOMContentLoaded", () => {
 

@@ -23,6 +23,17 @@
     }
 }
 
+@keyframes escalar_abajo {
+    0% {
+        transform: scaleY(0.4);
+        transform-origin: 100% 0%;
+    }
+    100% {
+        transform: scaleY(1);
+        transform-origin: 100% 0%;
+    }
+}
+
 body {
     background-color: rgb(187, 186, 186);
     div.container-flex {
@@ -286,6 +297,311 @@ body {
         }
         >#main.active {
             width: 79%;
+        }
+    }
+}
+
+@media screen and (max-width:450px) {
+    body {
+        div.container-flex {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 10px;
+            column-gap: 5px;
+            row-gap: 5px;
+            >#header {
+                width: 100%;
+                background-color: rgb(173, 173, 173);
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                align-items: center;
+                >h1,
+                >a,
+                >i {
+                    color: white;
+                    text-align: center;
+                }
+                >a,
+                >i {
+                    width: calc(100%/3);
+                    padding: 10px;
+                }
+                >h1 {
+                    order: 0;
+                    padding-top: 10px;
+                    width: 100%;
+                }
+                >a {
+                    order: 2;
+                    font-size: 25px;
+                }
+                >i {
+                    order: 3;
+                    font-size: 30px;
+                }
+                >form#frmDatos {
+                    order: 1;
+                    width: 100%;
+                    text-align: center;
+                }
+            }
+            div#frmAbs {
+                width: 300px;
+                height: 500px;
+            }
+            div#frmAbs.active {
+                display: block;
+                animation: escalado 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+            }
+            >#menu {
+                order: 1;
+                display: none;
+                z-index: 5;
+                width: 100%;
+                height: 50%;
+                padding: 10px;
+                bottom: 300px;
+                background-color: rgb(173, 173, 173);
+                animation: escalar_abajo 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+            }
+            >#menu.desactive {
+                display: block;
+            }
+            >#main {
+                order: 2;
+                width: 100%;
+                div#correo {
+                    div {
+                        padding: 10px;
+                        display: flex;
+                        flex-direction: column;
+                        >div {
+                            width: 100%;
+                            display: flex;
+                            flex-direction: column;
+                            h2 {
+                                text-align: center;
+                                padding-left: 10px;
+                                padding-bottom: 2px;
+                            }
+                            p {
+                                padding-right: 10px;
+                                padding-left: 10px;
+                                text-align: center;
+                            }
+                        }
+                        >div+div {
+                            width: 100%;
+                            justify-content: space-around;
+                            h3 {
+                                width: 50%;
+                                text-align: center;
+                            }
+                            div {
+                                width: 50%;
+                            }
+                        }
+                    }
+                    >div.no_informacion {
+                        font-size: 18px;
+                        width: 100%;
+                    }
+                }
+                div#seleccionado {
+                    >div {
+                        flex-direction: column;
+                        >h2,
+                        >h3,
+                        >p {
+                            font-size: 15px;
+                            width: 100%;
+                        }
+                        h2 {
+                            text-align: start;
+                        }
+                        h2.select_Mail {
+                            text-align: start;
+                        }
+                    }
+                }
+            }
+            >#main.active {
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:800px) {
+    body {
+        div.container-flex {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 10px;
+            column-gap: 5px;
+            row-gap: 5px;
+            >#header {
+                width: 100%;
+                background-color: rgb(173, 173, 173);
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                align-items: center;
+                >h1,
+                >a,
+                >i {
+                    color: white;
+                    text-align: center;
+                }
+                >a,
+                >i {
+                    width: calc(100%/3);
+                    padding: 10px;
+                }
+                >h1 {
+                    order: 0;
+                    padding-top: 10px;
+                    width: 100%;
+                }
+                >a {
+                    order: 2;
+                    font-size: 25px;
+                }
+                >i {
+                    order: 3;
+                    font-size: 30px;
+                }
+                >form#frmDatos {
+                    order: 1;
+                    width: 100%;
+                    text-align: center;
+                }
+            }
+            div#frmAbs {
+                display: none;
+                width: 500px;
+                height: 750px;
+                padding: 10px;
+                margin: 10px;
+                bottom: 50px;
+                right: 0;
+                background-color: rgb(97, 97, 97);
+                position: absolute;
+                z-index: 100;
+                form#frmEnviar {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    div {
+                        width: 100%;
+                        text-align: end;
+                        i {
+                            padding: 3px;
+                            margin: 3px;
+                        }
+                    }
+                    input {
+                        outline: none;
+                        padding: 10px;
+                        margin: 2px;
+                        width: 100%;
+                    }
+                    textarea {
+                        outline: none;
+                        width: 100%;
+                        padding: 10px;
+                        margin: 2px;
+                        height: 550px;
+                    }
+                    button {
+                        outline: none;
+                        width: 50%;
+                    }
+                    div>i:hover {
+                        background-color: rgb(173, 173, 173);
+                    }
+                }
+            }
+            div#frmAbs.active {
+                display: block;
+                animation: escalado 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+            }
+            >#menu {
+                order: 1;
+                display: none;
+                z-index: 5;
+                width: 100%;
+                height: 50%;
+                padding: 10px;
+                bottom: 300px;
+                background-color: rgb(173, 173, 173);
+                animation: escalar_abajo 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+            }
+            >#menu.desactive {
+                display: block;
+            }
+            >#main {
+                order: 2;
+                width: 100%;
+                div#correo {
+                    div {
+                        padding: 10px;
+                        display: flex;
+                        flex-direction: column;
+                        >div {
+                            width: 100%;
+                            display: flex;
+                            flex-direction: column;
+                            h2 {
+                                text-align: center;
+                                padding-left: 10px;
+                                padding-bottom: 2px;
+                            }
+                            p {
+                                padding-right: 10px;
+                                padding-left: 10px;
+                                text-align: center;
+                            }
+                        }
+                        >div+div {
+                            width: 100%;
+                            justify-content: space-around;
+                            h3 {
+                                width: 50%;
+                                text-align: center;
+                            }
+                            div {
+                                width: 50%;
+                            }
+                        }
+                    }
+                    >div.no_informacion {
+                        font-size: 18px;
+                        width: 100%;
+                    }
+                }
+                div#seleccionado {
+                    >div {
+                        flex-direction: column;
+                        >h2,
+                        >h3,
+                        >p {
+                            font-size: 15px;
+                            width: 100%;
+                        }
+                        h2 {
+                            text-align: start;
+                        }
+                        h2.select_Mail {
+                            text-align: start;
+                        }
+                    }
+                }
+            }
+            >#main.active {
+                width: 100%;
+            }
         }
     }
 }
